@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/product/layout :: head"></head>
+
+<body>
+<div id="div2">
+    <h3 style="text-align: right">List product</h3>
+</div>
+<div id="div4">
+    <form>
+        <label><input id="inputSearch" name="search" placeholder="search by name"></label>
+        <button>Search</button>
+        <button><a href="/products/create-product">Create new</a></button>
+    </form>
+    <div class="dropdown">
+        <button onclick="dropDown()" class="button-drop">Sort</button>
+        <div class="sort-order">
+            <a class="dropdown-item" th:href="@{/products/sort}">Sort Asc</a>
+            <a class="dropdown-item" th:href="@{/products/sort2}">Sort Desc</a>
+        </div>
+    </div>
+</div>
+
+<div id="div3" align="center">
+    <table cellpadding="1" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th style="color: rebeccapurple">Edit</th>
+            <th style="color: rebeccapurple">Delete</th>
+        </tr>
+        <tr th:each="product : ${list}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:if="${product.category}" th:text="${product.category.name}"></td>
+            <td th:unless="${product.category}"></td>
+            <td><img width="50px" height="50px" th:src="@{'/img/'+${product.image}}" alt=""></td>
+            <td>
+                <button><a th:href="@{/products/edit-product/__${product.id}__ }">Edit</a></button>
+            </td>
+            <td>
+                <button><a th:href="@{/products/delete-product/__${product.id}__ }">Delete</a></button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

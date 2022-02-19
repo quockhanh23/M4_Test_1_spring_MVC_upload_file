@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Edit</h2>
+<form action="/category/edit" method="post">
+    <table>
+        <tr>
+            <td>
+                <input name="id" th:value="${edit.getId()}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="name" th:value="${edit.getName()}">
+            </td>
+        </tr>
+    </table>
+    <button>Edit</button>
+</form>
+</body>
+</html>

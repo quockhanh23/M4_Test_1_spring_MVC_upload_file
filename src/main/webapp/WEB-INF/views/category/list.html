@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>List category</h2>
+<a href="/category/create-category">Create</a>
+<div>
+    <form>
+        <table>
+            <tr th:each="ca : ${list}">
+               <td th:text="${ca.id}"></td>
+               <td th:text="${ca.name}"></td>
+                <td><a th:href="@{/category/edit-category/__${ca.id}__ }">Edit</a></td>
+                <td><a th:href="@{/category/delete-category/__${ca.id}__ }">Delete</a></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

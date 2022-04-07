@@ -37,7 +37,7 @@ import java.util.Properties;
 @Configuration // đánh đấu đây là file cấu hình dự án Spring
 @EnableWebMvc // đánh dấu dự án này hỗ trợ mô hình MVC
 @EnableTransactionManagement // đánh dấu dự án có hỗ trợ transaction
-@EnableJpaRepositories("repository") // đánh dấu dự án có sử dụng jpa repository và đường dẫ
+@EnableJpaRepositories("repository") // đánh dấu dự án có sử dụng jpa repository và đường dẫn
 @ComponentScan("controller")// cho Spring biết phải tìm controller ở đâu
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext applicationContext; // khai báo 1 Spring Container

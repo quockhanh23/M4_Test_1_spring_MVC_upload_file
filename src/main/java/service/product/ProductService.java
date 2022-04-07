@@ -3,11 +3,9 @@ package service.product;
 import model.Category;
 import model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import repository.IProductRepository;
 
-import java.awt.print.Pageable;
 import java.util.Optional;
 
 @Service

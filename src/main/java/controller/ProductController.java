@@ -74,16 +74,7 @@ public class ProductController {
     @PostMapping("/create")
     public String create(Product product, @RequestParam MultipartFile image1) throws IOException {
         String fileName = image1.getOriginalFilename();
-        File dir = new File("E:/images/");
-        if (!dir.exists()) {
-            if (dir.mkdir()) {
-                System.out.println("Directory is created!");
-
-            } else {
-                System.out.println("Directory already exists");
-                System.out.println("Failed to create directory!");
-            }
-        }
+        productService.directoryCreate();
         try {
             FileCopyUtils.copy(image1.getBytes(),
                     new File("E:/images/" + fileName)); // coppy ảnh từ ảnh nhận được vào thư mục quy định,
@@ -111,6 +102,7 @@ public class ProductController {
     @PostMapping("/edit-product")
     public String update(Product product, @RequestParam MultipartFile image1) {
         String fileName = image1.getOriginalFilename();
+        productService.directoryCreate();
         try {
             FileCopyUtils.copy(image1.getBytes(),
                     new File("E:/images/" + fileName)); // coppy ảnh từ ảnh nhận được vào thư mục quy định,

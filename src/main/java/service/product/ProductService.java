@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.IProductRepository;
 
+import java.io.File;
 import java.util.Optional;
 
 @Service
@@ -53,4 +54,17 @@ public class ProductService implements IProductService {
         return iProductRepository.findAllByOrderByPriceAsc();
     }
 
+    @Override
+    public void directoryCreate() {
+        File dir = new File("E:/images/");
+        if (!dir.exists()) {
+            if (dir.mkdir()) {
+                System.out.println("Directory is created!");
+
+            } else {
+                System.out.println("Directory already exists");
+                System.out.println("Failed to create directory!");
+            }
+        }
+    }
 }
